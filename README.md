@@ -3,6 +3,16 @@
 The application provides a simple interface to unite the members of a GitHub organization, their repositories and the corresponding programming languages.
 It should solve the problem of finding people within a GitHub organization that know a specific programming language.
 
+## Demo
+
+A video of the demo can be seen below.
+During the startup an artificial delay of 15 seconds is used to download content from GitHub to show that the application is only ready once successful download from the GitHub API.
+This is represented by the HTTP status code 503 when the endpoint to get all Members returns is being triggered while the application is still in Health Status "down".
+After that, the data model is shown and the get Member functions are executed successfully, once without the language parameter and after that with different values.
+
+https://github.com/niklaskeerl/programming-languages-api/assets/33728607/a79a8900-c35e-427c-bf76-a4718b21b2bd
+
+
 ## Run Locally
 
 Install Java JDK 17.
