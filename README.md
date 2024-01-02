@@ -66,11 +66,11 @@ The structure of the GraphQL query is as follows:
 
 ```
 {
-  organization(login: "codecentric") {
+  organization(login: "<organization>") {
     membersWithRole(first: 36) {
       nodes {
         login
-        contributionsCollection(organizationID: "O_kgDOAA9oNA") {
+        contributionsCollection(organizationID: "<organization id>") {
           commitContributionsByRepository(maxRepositories: 10) {
             repository {
               languages(first: 3, orderBy: {field: SIZE, direction: DESC}) {
@@ -163,10 +163,10 @@ As an alternative to the GraphQL endpoint, a solution that uses the REST API can
 
 This would involve the following steps:
 
-1. Retrieve a list of all members by sending a HTTP GET request to https://api.github.com/orgs/codecentric/members.
-2. Obtain all repositories by sending a HTTP GET request to https://api.github.com/orgs/codecentric/repos.
-3. For each repository, determine the programming language by sending a HTTP GET request to https://api.github.com/repos/codecentric/<repo>/languages.
-4. Identify the contributors of each repository by sending a HTTP GET request to https://api.github.com/repos/codecentric/<repo>/contributors.
+1. Retrieve a list of all members by sending a HTTP GET request to `https://api.github.com/orgs/<organization>/members`.
+2. Obtain all repositories by sending a HTTP GET request to `https://api.github.com/orgs/<organization>/repos`.
+3. For each repository, determine the programming language by sending a HTTP GET request to `https://api.github.com/repos/<organization>/<repo>/languages`.
+4. Identify the contributors of each repository by sending a HTTP GET request to `https://api.github.com/repos/<organization>/<repo>/contributors`.
 5. Filter the obtained contributor list using the member list from step 1 to construct the data model.
 
 This approach results in a higher number of requests.
